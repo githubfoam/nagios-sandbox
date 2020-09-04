@@ -7,10 +7,10 @@ Travis (.com)  branch:
 ~~~~
 >vagrant init --template Vagrantfile.provision.bash.erb
 >dir
->vagrant up "vg-zabbix-01"
+>vagrant up "vg-nagios-01"
 
 
->vagrant destroy -f "vg-zabbix-01"
+>vagrant destroy -f "vg-nagios-01"
 
 >vagrant global-status
 
