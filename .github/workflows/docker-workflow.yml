@@ -20,8 +20,8 @@ jobs:
     - uses: actions/checkout@v2
     - name: "os fingerprinting"
       run: hostnamectl status  
-    - name: "build the docker image"
-      run: docker build . --file dockerfiles/Dockerfile.ubuntu2004 --tag $IMAGE_NAME  
+    - name: "build the docker image"  
+      run: cd dockerfiles && docker build . --file Dockerfile.ubuntu2004 --tag $IMAGE_NAME 
 
 #https://support.nagios.com/kb/article/nagios-core-installing-nagios-core-from-source-96.html#Ubuntu
   ubuntu-1804-nagios-job:
@@ -32,7 +32,7 @@ jobs:
     - name: "os fingerprinting"
       run: hostnamectl status 
     - name: "build the docker image"
-      run: docker build . --file dockerfiles/Dockerfile.ubuntu2004 --tag $IMAGE_NAME  
+      run: cd dockerfiles && docker build . --file Dockerfile.ubuntu2004 --tag $IMAGE_NAME 
 
       
 #https://support.nagios.com/kb/article/nagios-core-installing-nagios-core-from-source-96.html#Ubuntu
@@ -44,4 +44,4 @@ jobs:
     - name: "os fingerprinting"
       run: hostnamectl status   
     - name: "build the docker image"
-      run: docker build . --file dockerfiles/Dockerfile.ubuntu2004 --tag $IMAGE_NAME  
+      run: cd dockerfiles && docker build . --file Dockerfile.ubuntu2004 --tag $IMAGE_NAME 
