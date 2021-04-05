@@ -18,4 +18,14 @@ docker run -d                            \
 $IMAGE_NAME
 docker container ls
 
+netstat -tulpn 
+netstat -tunlp | grep ":80"
+netstat -plan
+netstat -plan | grep ":80"
+
+
+time curl -I http://127.0.0.1/nagios | grep HTTP # get the header for the page, and time the process
+curl -I "http://127.0.0.1/nagios" 2>&1 | grep -w "200\|301" # see if a given website is up or down
+
+
 echo "============================deploy nagios docker image============================================================="

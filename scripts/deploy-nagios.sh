@@ -14,8 +14,8 @@ echo "============================deploy nagios=================================
 # ---- 2. https://github.com/nagios-plugins/nagios-plugins/blob/release-2.3.3/REQUIREMENTS
 # ---- 3. https://github.com/nagios-plugins/nagios-plugins/blob/release-2.3.3/.travis.yml
 
-apt update                                                             && \
-    apt install -y --no-install-recommends                                    \
+apt-get update -qq                                                            && \
+apt-get install -yqq --no-install-recommends                                    \
         apache2                                                               \
         apache2-utils                                                         \
         autoconf                                                              \
