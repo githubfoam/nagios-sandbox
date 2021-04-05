@@ -22,17 +22,6 @@ jobs:
       run: hostnamectl status  
     - name: "deploy nagios docker image"
       run: sudo make deploy-nagios-docker      
-    # - name: "build the docker image"  
-    #   run: cd dockerfiles && docker build . --file Dockerfile.ubuntu2004 --tag $IMAGE_NAME
-    # - name: "docker image ls "  
-    #   run: docker image ls
-    # - name: "run a nagios service with default config"  
-    #   run: |
-    #     docker run -d                            \
-    #     -p 80:80 -p 443:443 -p 5666:5666         \
-    #     $IMAGE_NAME
-    # - name: "docker container ls "  
-    #   run: docker container ls
 
 #https://support.nagios.com/kb/article/nagios-core-installing-nagios-core-from-source-96.html#Ubuntu
   ubuntu-1804-nagios-job:
@@ -42,8 +31,12 @@ jobs:
     - uses: actions/checkout@v2
     - name: "os fingerprinting"
       run: hostnamectl status 
-    - name: "deploy nagios vagrant image"
-      run: sudo make deploy-nagios-vagrant  
+    - name: "deploy libvirt"
+      run: sudo make deploy-libvirt        
+    - name: "deploy vagrant"
+      run: sudo make deploy-vagrant 
+    - name: "deploy vagrant box"
+      run: sudo make deploy-boxes        
       
 #https://support.nagios.com/kb/article/nagios-core-installing-nagios-core-from-source-96.html#Ubuntu
   ubuntu-2004-nagios-job:
