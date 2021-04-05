@@ -34,25 +34,24 @@ jobs:
     # - name: "docker container ls "  
     #   run: docker container ls
 
-# #https://support.nagios.com/kb/article/nagios-core-installing-nagios-core-from-source-96.html#Ubuntu
-#   ubuntu-1804-nagios-job:
-#     name: "ubuntu-18.04 nagios job"
-#     runs-on: ubuntu-18.04
-#     steps:
-#     - uses: actions/checkout@v2
-#     - name: "os fingerprinting"
-#       run: hostnamectl status 
-#     - name: "build the docker image"
-#       run: cd dockerfiles && docker build . --file Dockerfile.ubuntu2004 --tag $IMAGE_NAME 
-
+#https://support.nagios.com/kb/article/nagios-core-installing-nagios-core-from-source-96.html#Ubuntu
+  ubuntu-1804-nagios-job:
+    name: "ubuntu-18.04 nagios job"
+    runs-on: ubuntu-18.04
+    steps:
+    - uses: actions/checkout@v2
+    - name: "os fingerprinting"
+      run: hostnamectl status 
+    - name: "deploy nagios vagrant image"
+      run: sudo make deploy-nagios-vagrant  
       
-# #https://support.nagios.com/kb/article/nagios-core-installing-nagios-core-from-source-96.html#Ubuntu
-#   ubuntu-2004-nagios-job:
-#     name: "ubuntu-20.04 nagios job"
-#     runs-on: ubuntu-20.04
-#     steps:
-#     - uses: actions/checkout@v2
-#     - name: "os fingerprinting"
-#       run: hostnamectl status   
-#     - name: "build the docker image"
-#       run: cd dockerfiles && docker build . --file Dockerfile.ubuntu2004 --tag $IMAGE_NAME 
+#https://support.nagios.com/kb/article/nagios-core-installing-nagios-core-from-source-96.html#Ubuntu
+  ubuntu-2004-nagios-job:
+    name: "ubuntu-20.04 nagios job"
+    runs-on: ubuntu-20.04
+    steps:
+    - uses: actions/checkout@v2
+    - name: "os fingerprinting"
+      run: hostnamectl status   
+    - name: "deploy nagios"
+      run: sudo make deploy-nagios
