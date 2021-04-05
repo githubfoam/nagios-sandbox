@@ -6,6 +6,8 @@ set -o xtrace
 # set -eox pipefail #safety for script
 
 echo "============================deploy nagios docker image============================================================="
+    
+IMAGE_NAME: "ubuntu2004/nagios44"
 
 cd dockerfiles 
 docker build . --file Dockerfile.ubuntu2004 --tag $IMAGE_NAME

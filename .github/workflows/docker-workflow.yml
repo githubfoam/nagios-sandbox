@@ -5,9 +5,9 @@ on:
   push:
     branches: [ dev ]
 
-env:
+# env:
     # Environment variable
-    IMAGE_NAME: "ubuntu2004/nagios44"
+    # IMAGE_NAME: "ubuntu2004/nagios44"
 
 
 jobs:
