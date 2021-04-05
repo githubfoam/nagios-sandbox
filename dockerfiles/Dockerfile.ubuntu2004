@@ -1,5 +1,8 @@
 FROM ubuntu:20.04
 
+#Do not execute the container as the root user 
+# RUN groupadd -r myuser && useradd -r -g myuser myuser
+
 ARG DEBIAN_FRONTEND=noninteractive
 
 # ---- package version
@@ -184,5 +187,8 @@ RUN touch /opt/nagios/var/nagios.log && chmod 0644 /opt/nagios/var/nagios.log
 EXPOSE 80 443 5666
 
 VOLUME [ "${NAGIOS_HOME}/var", "${NAGIOS_HOME}/etc" ]
+
+# Switch user
+# USER myuser
 
 CMD [ "/usr/bin/supervisord", "-c", "/etc/supervisor/supervisord.conf" ]

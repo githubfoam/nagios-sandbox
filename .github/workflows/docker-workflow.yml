@@ -13,7 +13,7 @@ on:
 jobs:
 
 #https://support.nagios.com/kb/article/nagios-core-installing-nagios-core-from-source-96.html#Ubuntu
-  ubuntu-1604-nagios-job:
+  ubuntu-1604-nagios-docker-job:
     name: "ubuntu-16.04 nagios job"
     runs-on: ubuntu-16.04
     steps:
@@ -21,7 +21,17 @@ jobs:
     - name: "os fingerprinting"
       run: hostnamectl status  
     - name: "deploy nagios docker image"
-      run: sudo make deploy-nagios-docker      
+      run: sudo make deploy-nagios-docker     
+
+  ubuntu-2004-nagios-docker-job:
+    name: "ubuntu-20.04 nagios job"
+    runs-on: ubuntu-20.04
+    steps:
+    - uses: actions/checkout@v2
+    - name: "os fingerprinting"
+      run: hostnamectl status   
+    - name: "deploy nagios docker image"
+      run: sudo make deploy-nagios-docker-prod 
 
 #https://support.nagios.com/kb/article/nagios-core-installing-nagios-core-from-source-96.html#Ubuntu
   ubuntu-1804-nagios-job:

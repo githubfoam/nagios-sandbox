@@ -15,10 +15,6 @@ docker image ls
 
 docker run -d                            \
 --name nagios                            \
---cpus=2                                 \
---cpu-shares=2000                        \
--m 1g                                    \
---memory-reservation=256m                \       
 -p 80:80 -p 443:443 -p 5666:5666         \
 $IMAGE_NAME
 
@@ -44,7 +40,14 @@ docker volume ls
 docker container kill nagios #Stop a running container through SIGKILL 
 # docker container rm -f $(docker ps) #Delete all running and stopped containers
 
-
+docker run -d                            \
+--name nagios                            \
+--cpus=2                                 \
+--cpu-shares=2000                        \
+-m 1g                                    \
+--memory-reservation=256m                \       
+-p 80:80 -p 443:443 -p 5666:5666         \
+$IMAGE_NAME
 
 docker stats 
 

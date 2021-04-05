@@ -14,6 +14,10 @@ echo "============================deploy nagios=================================
 # ---- 2. https://github.com/nagios-plugins/nagios-plugins/blob/release-2.3.3/REQUIREMENTS
 # ---- 3. https://github.com/nagios-plugins/nagios-plugins/blob/release-2.3.3/.travis.yml
 
+
+# libapache2-mod-php : Depends: libapache2-mod-php7.4 but it is not going to be installed
+# libapache2-mod-php                                                    
+
 apt-get update -qq                                                            && \
 apt-get install -y --no-install-recommends                                    \
         apache2                                                               \
@@ -31,8 +35,6 @@ apt-get install -y --no-install-recommends                                    \
         gettext                                                               \
         iputils-ping                                                          \
         ldap-utils                                                            \
-        # libapache2-mod-php : Depends: libapache2-mod-php7.4 but it is not going to be installed
-        # libapache2-mod-php                                                    \
         libc6                                                                 \
         libcrypt-x509-perl                                                    \
         libdatetime-format-dateparse-perl                                     \
