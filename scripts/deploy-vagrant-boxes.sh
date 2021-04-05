@@ -97,9 +97,8 @@ vagrant mutate "bento/ubuntu-20.04" libvirt
 # vagrant up --provider=libvirt "vg-compute-05"
 
 vagrant box list #veridy installed boxes
-vagrant status #Check the status of the VMs to see that none of them have been created yet
-vagrant status
-virsh list --all #show all running KVM/libvirt VMs
+# vagrant status #Check the status of the VMs to see that none of them have been created yet
+# virsh list --all #show all running KVM/libvirt VMs
 # vagrant destroy -f "vg-compute-05"
 
 # https://app.vagrantup.com/archlinux

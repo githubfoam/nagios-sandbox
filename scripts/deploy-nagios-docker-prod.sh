@@ -15,8 +15,7 @@ docker image ls
 
 docker run -d                            \
 --name nagios                            \
-# --cpus=2                                 \
-# --cpu-shares=2000                        \
+--cpus=2                                 \
 --memory="1g"                            \
 --memory-reservation="256m"                \       
 -p 80:80 -p 443:443 -p 5666:5666         \
@@ -31,29 +30,19 @@ docker stats
 docker container logs --tail 100 nagios #Print the last 100  lines of a container’s logs
 
 docker logs nagios
-docker top nagios # processes of container nagios
-docker diff nagios # show all modified files of container nagios
-docker port nagios # show all mapped ports of container nagios
+# docker top nagios # processes of container nagios
+# docker diff nagios # show all modified files of container nagios
+# docker port nagios # show all mapped ports of container nagios
 
 
-docker network ls | grep "bridge"
-docker network ls #List networks
+# docker network ls | grep "bridge"
+# docker network ls #List networks
 
-docker volume ls
+# docker volume ls
 
-docker container kill nagios #Stop a running container through SIGKILL 
+# docker container kill nagios #Stop a running container through SIGKILL 
 # docker container rm -f $(docker ps) #Delete all running and stopped containers
 
-docker run -d                            \
---name nagios                            \
---cpus=2                                 \
---cpu-shares=2000                        \
--m 1g                                    \
---memory-reservation=256m                \       
--p 80:80 -p 443:443 -p 5666:5666         \
-$IMAGE_NAME
-
-docker stats 
 
 # netstat -tulpn 
 # netstat -tunlp | grep ":80"
