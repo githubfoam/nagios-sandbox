@@ -46,7 +46,7 @@ jobs:
     - name: "deploy vagrant"
       run: sudo make deploy-vagrant 
     - name: "deploy vagrant box"
-      run: sudo make deploy-boxes        
+      run: sudo make deploy-vagrant-boxes        
       
 #https://support.nagios.com/kb/article/nagios-core-installing-nagios-core-from-source-96.html#Ubuntu
   ubuntu-2004-nagios-job:

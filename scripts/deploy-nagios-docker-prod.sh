@@ -15,6 +15,10 @@ docker image ls
 
 docker run -d                            \
 --name nagios                            \
+# --cpus=2                                 \
+# --cpu-shares=2000                        \
+--memory="1g"                            \
+--memory-reservation="256m"                \       
 -p 80:80 -p 443:443 -p 5666:5666         \
 $IMAGE_NAME
 
