@@ -31,7 +31,8 @@ apt-get install -y --no-install-recommends                                    \
         gettext                                                               \
         iputils-ping                                                          \
         ldap-utils                                                            \
-        libapache2-mod-php                                                    \
+        # libapache2-mod-php : Depends: libapache2-mod-php7.4 but it is not going to be installed
+        # libapache2-mod-php                                                    \
         libc6                                                                 \
         libcrypt-x509-perl                                                    \
         libdatetime-format-dateparse-perl                                     \

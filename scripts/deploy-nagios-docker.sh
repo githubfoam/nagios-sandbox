@@ -27,7 +27,7 @@ docker network ls #List networks
 docker volume ls
 
 docker container kill nagios #Stop a running container through SIGKILL 
-docker container rm -f $(docker ps #Delete all running and stopped containers
+docker container rm -f $(docker ps) #Delete all running and stopped containers
 
 # netstat -tulpn 
 # netstat -tunlp | grep ":80"
