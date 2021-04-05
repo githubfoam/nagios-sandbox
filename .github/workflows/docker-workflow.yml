@@ -21,33 +21,36 @@ jobs:
     - name: "os fingerprinting"
       run: hostnamectl status  
     - name: "build the docker image"  
-      run: cd dockerfiles && docker build . --file Dockerfile.ubuntu2004 --tag $IMAGE_NAME && \
-          docker image ls   
-    # - name: "run a nagios service with default config"  
-    #   run: |
-    #     docker run -d                            \
-    #     -p 80:80 -p 443:443 -p 5666:5666         \
-    #     ubuntu2004/nagios446
-
-#https://support.nagios.com/kb/article/nagios-core-installing-nagios-core-from-source-96.html#Ubuntu
-  ubuntu-1804-nagios-job:
-    name: "ubuntu-18.04 nagios job"
-    runs-on: ubuntu-18.04
-    steps:
-    - uses: actions/checkout@v2
-    - name: "os fingerprinting"
-      run: hostnamectl status 
-    - name: "build the docker image"
-      run: cd dockerfiles && docker build . --file Dockerfile.ubuntu2004 --tag $IMAGE_NAME 
+      run: cd dockerfiles && docker build . --file Dockerfile.ubuntu2004 --tag $IMAGE_NAME
+    - name: "docker image ls "  
+      run: docker image ls
+    - name: "run a nagios service with default config"  
+      run: |
+        docker run -d                            \
+        -p 80:80 -p 443:443 -p 5666:5666         \
+        $IMAGE_NAME
+    - name: "docker imagecontainer ls "  
+      run: docker container ls
+      
+# #https://support.nagios.com/kb/article/nagios-core-installing-nagios-core-from-source-96.html#Ubuntu
+#   ubuntu-1804-nagios-job:
+#     name: "ubuntu-18.04 nagios job"
+#     runs-on: ubuntu-18.04
+#     steps:
+#     - uses: actions/checkout@v2
+#     - name: "os fingerprinting"
+#       run: hostnamectl status 
+#     - name: "build the docker image"
+#       run: cd dockerfiles && docker build . --file Dockerfile.ubuntu2004 --tag $IMAGE_NAME 
 
       
-#https://support.nagios.com/kb/article/nagios-core-installing-nagios-core-from-source-96.html#Ubuntu
-  ubuntu-2004-nagios-job:
-    name: "ubuntu-20.04 nagios job"
-    runs-on: ubuntu-20.04
-    steps:
-    - uses: actions/checkout@v2
-    - name: "os fingerprinting"
-      run: hostnamectl status   
-    - name: "build the docker image"
-      run: cd dockerfiles && docker build . --file Dockerfile.ubuntu2004 --tag $IMAGE_NAME 
+# #https://support.nagios.com/kb/article/nagios-core-installing-nagios-core-from-source-96.html#Ubuntu
+#   ubuntu-2004-nagios-job:
+#     name: "ubuntu-20.04 nagios job"
+#     runs-on: ubuntu-20.04
+#     steps:
+#     - uses: actions/checkout@v2
+#     - name: "os fingerprinting"
+#       run: hostnamectl status   
+#     - name: "build the docker image"
+#       run: cd dockerfiles && docker build . --file Dockerfile.ubuntu2004 --tag $IMAGE_NAME 
