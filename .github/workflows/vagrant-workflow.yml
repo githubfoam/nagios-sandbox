@@ -1,0 +1,82 @@
+name: "Ubuntu nagios vagrant CI workflow"
+
+
+on:
+  push:
+    branches: [ dev ]
+
+# env:
+#     # Environment variable
+#     IMAGE_NAME: "ubuntu2004/nagios44"
+
+
+jobs:
+
+#https://support.nagios.com/kb/article/nagios-core-installing-nagios-core-from-source-96.html#Ubuntu
+  ubuntu-1604-nagios-docker-job:
+    name: "ubuntu-16.04 nagios vagrant job"
+    runs-on: ubuntu-16.04
+    steps:
+    - uses: actions/checkout@v2
+    - name: "os fingerprinting"
+      run: hostnamectl status    
+    - name: "deploy libvirt"
+      run: sudo make deploy-libvirt        
+    - name: "deploy vagrant"
+      run: sudo make deploy-vagrant 
+    - name: "deploy vagrant box"
+      run: sudo make deploy-vagrant-boxes   
+    # - name: "run vagrant box"
+    #   run: |
+    #     vagrant up --provider=libvirt "vg-nagios-01"
+    #     vagrant status #Check the status of the VMs to see that none of them have been created yet
+    #     virsh list --all #show all running KVM/libvirt VMs
+    #     vagrant destroy -f     
+
+#https://support.nagios.com/kb/article/nagios-core-installing-nagios-core-from-source-96.html#Ubuntu
+  ubuntu-1804-nagios-vagrant-job:
+    name: "ubuntu-18.04 nagios vagrant job"
+    runs-on: ubuntu-18.04
+    steps:
+    - uses: actions/checkout@v2
+    - name: "os fingerprinting"
+      run: hostnamectl status 
+    - name: "deploy libvirt"
+      run: sudo make deploy-libvirt        
+    - name: "deploy vagrant"
+      run: sudo make deploy-vagrant 
+      # Error while creating domain: Error saving the server: Call to virDomainDefineXML failed: invalid argument: could not find capabilities for domaintype=kvm 
+    - name: "run troubleshooting"
+      run: |
+        sudo apt-get install qemu -yqq
+        sudo grep -i vmx /proc/cpuinfo #check if the CPU supports virtualization
+        sudo lsmod | grep kvm #check if the kvm kernel module is loaded      
+    - name: "deploy vagrant box"
+      run: sudo make deploy-vagrant-boxes   
+    # - name: "run vagrant box"
+    #   run: |
+    #     vagrant up --provider=libvirt "vg-nagios-01"
+    #     vagrant status #Check the status of the VMs to see that none of them have been created yet
+    #     virsh list --all #show all running KVM/libvirt VMs
+    #     vagrant destroy -f           
+      
+#https://support.nagios.com/kb/article/nagios-core-installing-nagios-core-from-source-96.html#Ubuntu
+  ubuntu-2004-nagios-job:
+    name: "ubuntu-20.04 nagios vagrant job"
+    runs-on: ubuntu-20.04
+    steps:
+    - uses: actions/checkout@v2
+    - name: "os fingerprinting"
+      run: hostnamectl status   
+    - name: "deploy libvirt"
+      run: sudo make deploy-libvirt        
+    - name: "deploy vagrant"
+      run: sudo make deploy-vagrant 
+    - name: "deploy vagrant box"
+      run: sudo make deploy-vagrant-boxes   
+    # - name: "run vagrant box"
+    #   run: |
+    #     vagrant up --provider=libvirt "vg-nagios-01"
+    #     vagrant status #Check the status of the VMs to see that none of them have been created yet
+    #     virsh list --all #show all running KVM/libvirt VMs
+    #     vagrant destroy -f 

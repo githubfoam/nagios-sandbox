@@ -86,8 +86,8 @@ vagrant plugin install vagrant-mutate #Convert vagrant boxes to work with differ
 
 # The repository 'http://ppa.launchpad.net/ansible/ansible/ubuntu focal Release' does not have a Release file
 # https://github.com/chef/bento/tree/master/packer_templates/debian
-vagrant box add "bento/ubuntu-20.04" --provider=virtualbox
-vagrant mutate "bento/ubuntu-20.04" libvirt
+# vagrant box add "bento/ubuntu-20.04" --provider=virtualbox
+# vagrant mutate "bento/ubuntu-20.04" libvirt
 # vagrant up --provider=libvirt "vg-compute-01"
 
 
