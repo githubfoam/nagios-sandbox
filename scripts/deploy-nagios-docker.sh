@@ -21,22 +21,24 @@ docker container ls
 
 docker info
 docker inspect $IMAGE_NAME
-# docker stats 
-docker stats --all --format "table {{.Container}}\t{{.CPUPerc}}\t{{.MemUsage}}" $CONTAINER_NAME
-docker stats --format "table {{.Container}}\t{{.CPUPerc}}\t{{.MemUsage}}"
 
-# docker container logs --tail 100 nagios #Print the last 100  lines of a container’s logs
+# nonstop live streaming data
+timeout 3s  docker stats 
+timeout 3s  docker stats --all --format "table {{.Container}}\t{{.CPUPerc}}\t{{.MemUsage}}" $CONTAINER_NAME
+timeout 3s docker stats --format "table {{.Container}}\t{{.CPUPerc}}\t{{.MemUsage}}"
 
-# docker logs nagios
-# docker top nagios # processes of container nagios
-# docker diff nagios # show all modified files of container nagios
-# docker port nagios # show all mapped ports of container nagios
+docker container logs --tail 100 nagios #Print the last 100  lines of a container’s logs
+
+docker logs nagios
+docker top nagios # processes of container nagios
+docker diff nagios # show all modified files of container nagios
+docker port nagios # show all mapped ports of container nagios
 
 
-# docker network ls | grep "bridge"
-# docker network ls #List networks
+docker network ls | grep "bridge"
+docker network ls #List networks
 
-# docker volume ls
+docker volume ls
 
 # docker container kill nagios #Stop a running container through SIGKILL 
 # docker container rm -f $(docker ps) #Delete all running and   stopped containers
