@@ -14,6 +14,7 @@ docker image ls
 
 docker run -d                            \
 --name $CONTAINER_NAME                   \
+--cpus 2                                 \
 --memory 1G                              \
 -p 80:80 -p 443:443 -p 5666:5666         \
 $IMAGE_NAME
@@ -21,7 +22,7 @@ $IMAGE_NAME
 docker container ls
 
 docker info
-# docker inspect $IMAGE_NAME
+docker inspect $IMAGE_NAME
 # docker stats 
 
 # docker container logs --tail 100 nagios #Print the last 100  lines of a container’s logs

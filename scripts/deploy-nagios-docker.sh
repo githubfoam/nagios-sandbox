@@ -22,6 +22,8 @@ docker container ls
 docker info
 docker inspect $IMAGE_NAME
 # docker stats 
+docker stats --all --format "table {{.Container}}\t{{.CPUPerc}}\t{{.MemUsage}}" $CONTAINER_NAME
+docker stats --format "table {{.Container}}\t{{.CPUPerc}}\t{{.MemUsage}}"
 
 # docker container logs --tail 100 nagios #Print the last 100  lines of a container’s logs
 
