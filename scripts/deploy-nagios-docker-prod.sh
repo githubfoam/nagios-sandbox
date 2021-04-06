@@ -13,7 +13,7 @@ export CONTAINER_NAME="nagiosprod"
 docker image ls
 
 docker run -d                            \
---name $CONTAINER_NAME                   \    
+--name $CONTAINER_NAME                   \
 -p 80:80 -p 443:443 -p 5666:5666         \
 $IMAGE_NAME
 

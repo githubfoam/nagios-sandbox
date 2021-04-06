@@ -36,20 +36,20 @@ jobs:
         cd /tmp/nagioscore-nagios-4.4.5/
         sudo ./configure --with-httpd-conf=/etc/apache2/sites-enabled
         sudo make all   
-    - name: "Create User And Group"
-      #This creates the nagios user and group. The www-data user is also added to the nagios group.
-      run: |
-        sudo make install-groups-users #make: *** No rule to make target 'install-groups-users'
-        sudo usermod -a -G nagios www-data
-    - name: "Install Binaries"
-      #This step installs the binary files, CGIs, and HTML files
-      run: sudo make install 
-    - name: "Install Service / Daemon"
-      #This installs the service or daemon files and also configures them to start on boot
-      run: sudo make install-daemoninit     
-    - name: "Install Command Mode"
-      #This installs and configures the external command file
-      run: sudo make install-commandmode   
+    # - name: "Create User And Group"
+    #   #This creates the nagios user and group. The www-data user is also added to the nagios group.
+    #   run: |
+    #     sudo make install-groups-users #make: *** No rule to make target 'install-groups-users'
+    #     sudo usermod -a -G nagios www-data
+    # - name: "Install Binaries"
+    #   #This step installs the binary files, CGIs, and HTML files
+    #   run: sudo make install 
+    # - name: "Install Service / Daemon"
+    #   #This installs the service or daemon files and also configures them to start on boot
+    #   run: sudo make install-daemoninit     
+    # - name: "Install Command Mode"
+    #   #This installs and configures the external command file
+    #   run: sudo make install-commandmode   
 
 #https://support.nagios.com/kb/article/nagios-core-installing-nagios-core-from-source-96.html#Ubuntu
   ubuntu-1804-nagios-job:
