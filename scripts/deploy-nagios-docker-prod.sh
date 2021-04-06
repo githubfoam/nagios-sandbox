@@ -5,19 +5,18 @@ set -o nounset
 set -o xtrace
 # set -eox pipefail #safety for script
 
-echo "============================deploy nagios docker image============================================================="
+echo "============================deploy nagios docker============================================================="
     
 export IMAGE_NAME="ubuntu2004/nagios446"
+export CONTAINER_NAME="nagios"
 
-cd dockerfiles 
-docker build . --file Dockerfile.ubuntu2004 --tag $IMAGE_NAME
 docker image ls
 
 docker run -d                            \
---name nagios                            \
+--name $CONTAINER_NAME                   \
 --cpus=2                                 \
 --memory="1g"                            \
---memory-reservation="256m"                \       
+--memory-reservation="256m"              \       
 -p 80:80 -p 443:443 -p 5666:5666         \
 $IMAGE_NAME
 

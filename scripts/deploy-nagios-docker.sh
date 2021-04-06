@@ -8,13 +8,14 @@ set -o xtrace
 echo "============================deploy nagios docker image============================================================="
     
 export IMAGE_NAME="ubuntu2004/nagios446"
+export cONTAINER_NAME="nagios"
 
 cd dockerfiles 
 docker build . --file Dockerfile.ubuntu2004 --tag $IMAGE_NAME
 docker image ls
 
 docker run -d                            \
---name nagios                            \
+--name $cONTAINER_NAME                   \
 -p 80:80 -p 443:443 -p 5666:5666         \
 $IMAGE_NAME
 
