@@ -6,11 +6,14 @@ set -o xtrace
 # set -eox pipefail #safety for script
 
 echo "============================deploy nagios docker image============================================================="
-    
-export cONTAINER_NAME="nagios"
+
+export IMAGE_NAME="ubuntu2004/nagios446"      
+export CONTAINER_NAME="nagios"
+
+docker container ls
 
 docker run -d                            \
---name $cONTAINER_NAME                   \
+--name $CONTAINER_NAME                   \
 -p 80:80 -p 443:443 -p 5666:5666         \
 $IMAGE_NAME
 
