@@ -13,6 +13,9 @@ deploy-nagios-docker:
 deploy-nagios-docker-prod:
 	bash scripts/deploy-nagios-docker-prod.sh	
 
+build-nagios-docker-image:
+	bash scripts/build-nagios-docker-image.sh	
+
 deploy-nagios-vagrant:
 	bash scripts/deploy-nagios-vagrant.sh
 

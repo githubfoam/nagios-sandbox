@@ -7,16 +7,14 @@ set -o xtrace
 
 echo "============================deploy nagios docker============================================================="
     
-export IMAGE_NAME="ubuntu2004/nagios446"
-export CONTAINER_NAME="nagios"
+export CONTAINER_NAME="nagiosprod"
 
 docker image ls
 
 docker run -d                            \
 --name $CONTAINER_NAME                   \
 --cpus=2                                 \
---memory="1g"                            \
---memory-reservation="256m"              \       
+--memory="1g"                            \      
 -p 80:80 -p 443:443 -p 5666:5666         \
 $IMAGE_NAME
 

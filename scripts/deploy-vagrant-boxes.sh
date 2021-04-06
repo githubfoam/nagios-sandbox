@@ -96,9 +96,9 @@ vagrant mutate "bento/ubuntu-20.04" libvirt
 # vagrant mutate "bento/debian-10.4" libvirt
 # vagrant up --provider=libvirt "vg-compute-05"
 
-# https://app.vagrantup.com/centos/boxes/7
+# https://app.vagrantup.com/centos/boxes/8
 vagrant box add "centos/8" --provider=libvirt
-vagrant init --template Vagrantfile.ansible.role.erb
+vagrant init --template Vagrantfile.provision.bash.erb
 # must be created in project root directory with Vagrantfile template file
 vagrant up --provider=libvirt "vg-docker-01" 
 
