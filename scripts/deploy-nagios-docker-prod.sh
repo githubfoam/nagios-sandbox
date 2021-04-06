@@ -14,6 +14,7 @@ docker image ls
 
 docker run -d                            \
 --name $CONTAINER_NAME                   \
+--memory 1G                              \
 -p 80:80 -p 443:443 -p 5666:5666         \
 $IMAGE_NAME
 

@@ -20,7 +20,7 @@ $IMAGE_NAME
 docker container ls
 
 docker info
-# docker inspect $IMAGE_NAME
+docker inspect $IMAGE_NAME
 # docker stats 
 
 # docker container logs --tail 100 nagios #Print the last 100  lines of a container’s logs
