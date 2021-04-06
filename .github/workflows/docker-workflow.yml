@@ -6,7 +6,7 @@ on:
     branches: [ dev ]
 
 env:
-    Environment variable
+    # Environment variable
     IMAGE_NAME: "ubuntu2004/nagios44"
 
 
