@@ -96,6 +96,12 @@ vagrant mutate "bento/ubuntu-20.04" libvirt
 # vagrant mutate "bento/debian-10.4" libvirt
 # vagrant up --provider=libvirt "vg-compute-05"
 
+# https://app.vagrantup.com/centos/boxes/7
+vagrant box add "bento/debian-10.8" --provider=libvirt
+vagrant init --template Vagrantfile.ansible.role.erb
+# must be created in project root directory with Vagrantfile template file
+vagrant up --provider=libvirt "vg-docker-01" 
+
 vagrant box list #veridy installed boxes
 # vagrant status #Check the status of the VMs to see that none of them have been created yet
 # virsh list --all #show all running KVM/libvirt VMs

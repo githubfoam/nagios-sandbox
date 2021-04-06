@@ -24,12 +24,12 @@ $IMAGE_NAME
 docker container ls
 
 docker info
-docker inspect $IMAGE_NAME
-docker stats 
+# docker inspect $IMAGE_NAME
+# docker stats 
 
-docker container logs --tail 100 nagios #Print the last 100  lines of a container’s logs
+# docker container logs --tail 100 nagios #Print the last 100  lines of a container’s logs
 
-docker logs nagios
+# docker logs nagios
 # docker top nagios # processes of container nagios
 # docker diff nagios # show all modified files of container nagios
 # docker port nagios # show all mapped ports of container nagios
