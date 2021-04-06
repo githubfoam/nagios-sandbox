@@ -12,10 +12,20 @@ export CONTAINER_NAME="nagiosprod"
 
 docker image ls
 
+# virtual files to implement memory and swap limits
+file /sys/fs/cgroup/memory/memory.limit_in_bytes
+# If kernel does not support swap memory limit, this file is missing
+# docker run command without any limitations on the use of the swap space
+file /sys/fs/cgroup/memory/memory.memsw.limit_in_bytes 
+
+docker network create nagiosnet #create a seperated network
+
 docker run -d                            \
 --name $CONTAINER_NAME                   \
 --cpus 2                                 \
+--cpu-quota=25000                        \
 --memory 1G                              \
+--net nagiosnet                          \
 -p 80:80 -p 443:443 -p 5666:5666         \
 $IMAGE_NAME
 
