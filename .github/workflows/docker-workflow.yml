@@ -19,7 +19,9 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: "os fingerprinting"
-      run: hostnamectl status        
+      run: hostnamectl status    
+    - name: "build nagios docker image"
+      run: sudo make build-nagios-docker-image              
     - name: "deploy nagios docker image"
       run: sudo make deploy-nagios-docker     
 
@@ -30,6 +32,8 @@ jobs:
     - uses: actions/checkout@v2
     - name: "os fingerprinting"
       run: hostnamectl status   
+    - name: "build nagios docker image"
+      run: sudo make build-nagios-docker-image         
     - name: "deploy nagios docker image"
       run: sudo make deploy-nagios-docker-prod 
 
@@ -46,7 +50,13 @@ jobs:
     - name: "deploy vagrant"
       run: sudo make deploy-vagrant 
     - name: "deploy vagrant box"
-      run: sudo make deploy-vagrant-boxes        
+      run: sudo make deploy-vagrant-boxes   
+    - name: "run vagrant box"
+      run: |
+        vagrant up --provider=libvirt "vg-nagios-01"
+        vagrant status #Check the status of the VMs to see that none of them have been created yet
+        virsh list --all #show all running KVM/libvirt VMs
+        vagrant destroy -f           
       
 #https://support.nagios.com/kb/article/nagios-core-installing-nagios-core-from-source-96.html#Ubuntu
   ubuntu-2004-nagios-job:

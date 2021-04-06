@@ -98,11 +98,11 @@ vagrant mutate "bento/ubuntu-20.04" libvirt
 
 # https://app.vagrantup.com/centos/boxes/8
 vagrant box add "centos/8" --provider=libvirt
+vagrant box list #verify installed boxes
 vagrant init --template Vagrantfile.provision.bash.erb
 # must be created in project root directory with Vagrantfile template file
-vagrant up --provider=libvirt "vg-docker-01" 
+# vagrant up --provider=libvirt "vg-nagios-01" 
 
-vagrant box list #veridy installed boxes
 # vagrant status #Check the status of the VMs to see that none of them have been created yet
 # virsh list --all #show all running KVM/libvirt VMs
 # vagrant destroy -f "vg-compute-05"
