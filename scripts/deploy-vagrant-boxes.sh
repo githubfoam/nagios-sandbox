@@ -101,10 +101,11 @@ vagrant box add "centos/8" --provider=libvirt
 vagrant box list #verify installed boxes
 vagrant init --template Vagrantfile.provision.bash.erb
 # must be created in project root directory with Vagrantfile template file
-# vagrant up --provider=libvirt "vg-nagios-01" 
+vagrant up --provider=libvirt "vg-nagios-01" 
 
-# vagrant status #Check the status of the VMs to see that none of them have been created yet
-# virsh list --all #show all running KVM/libvirt VMs
+vagrant status #Check the status of the VMs to see that none of them have been created yet
+virsh list --all #show all running KVM/libvirt VMs
+vagrant destroy -f
 # vagrant destroy -f "vg-compute-05"
 
 # https://app.vagrantup.com/archlinux

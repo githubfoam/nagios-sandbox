@@ -7,7 +7,7 @@ set -o xtrace
 
 echo "============================build nagios docker image============================================================="
     
-# export IMAGE_NAME="ubuntu2004/nagios446"
+export IMAGE_NAME="ubuntu2004/nagios446"
 
 cd dockerfiles 
 docker build . --file Dockerfile.ubuntu2004 --tag $IMAGE_NAME
