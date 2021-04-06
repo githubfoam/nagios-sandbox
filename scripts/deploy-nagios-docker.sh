@@ -23,7 +23,7 @@ docker info
 docker inspect $IMAGE_NAME
 
 # nonstop live streaming data
-timeout -k 5 3s  docker stats #timeout sends KILL signal after 5 more seconds
+# timeout -k 5 3s  docker stats #timeout sends KILL signal after 5 more seconds
 # timeout 3s  docker stats --all --format "table {{.Container}}\t{{.CPUPerc}}\t{{.MemUsage}}" $CONTAINER_NAME
 # timeout 3s docker stats --format "table {{.Container}}\t{{.CPUPerc}}\t{{.MemUsage}}"
 
