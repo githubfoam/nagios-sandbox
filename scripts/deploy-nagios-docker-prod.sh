@@ -22,8 +22,7 @@ docker network create nagiosnet #create a seperated network
 
 docker run -d                            \
 --name $CONTAINER_NAME                   \
---cpus 2                                 \
---cpu-quota=25000                        \
+--cpus 1.5                               \
 --memory 1G                              \
 --net nagiosnet                          \
 -p 80:80 -p 443:443 -p 5666:5666         \

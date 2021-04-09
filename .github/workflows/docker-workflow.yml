@@ -25,17 +25,17 @@ jobs:
     - name: "deploy nagios docker image"
       run: sudo make deploy-nagios-docker     
 
-  ubuntu-1804-nagios-docker-job:
-    name: "ubuntu-18.04 nagios docker prod job"
-    runs-on: ubuntu-18.04
-    steps:
-    - uses: actions/checkout@v2
-    - name: "os fingerprinting"
-      run: hostnamectl status   
-    - name: "build nagios docker image"
-      run: sudo make build-nagios-docker-image         
-    - name: "deploy nagios docker image"
-      run: sudo make deploy-nagios-docker-prod 
+  # ubuntu-1804-nagios-docker-job:
+  #   name: "ubuntu-18.04 nagios docker prod job"
+  #   runs-on: ubuntu-18.04
+  #   steps:
+  #   - uses: actions/checkout@v2
+  #   - name: "os fingerprinting"
+  #     run: hostnamectl status   
+  #   - name: "build nagios docker image"
+  #     run: sudo make build-nagios-docker-image         
+  #   - name: "deploy nagios docker image"
+  #     run: sudo make deploy-nagios-docker-prod 
 
   ubuntu-2004-nagios-docker-job:
     name: "ubuntu-20.04 nagios docker prod job"

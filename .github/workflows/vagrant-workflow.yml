@@ -20,12 +20,12 @@ jobs:
     - uses: actions/checkout@v2
     - name: "os fingerprinting"
       run: hostnamectl status    
-    - name: "deploy libvirt"
-      run: sudo make deploy-libvirt        
-    - name: "deploy vagrant"
-      run: sudo make deploy-vagrant 
-    - name: "deploy vagrant box"
-      run: sudo make deploy-vagrant-boxes   
+    # - name: "deploy libvirt"
+    #   run: sudo make deploy-libvirt        
+    # - name: "deploy vagrant"
+    #   run: sudo make deploy-vagrant 
+    # - name: "deploy vagrant box"
+    #   run: sudo make deploy-vagrant-boxes   
     # - name: "run vagrant box"
     #   run: |
     #     vagrant up --provider=libvirt "vg-nagios-01"
