@@ -11,12 +11,14 @@ on:
 jobs:
 
   ubuntu-job:
-    name: "ubuntu-latest"
+    name: "ubuntu-latest libvirt docker image"
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
     - name: "os fingerprinting"
       run: hostnamectl status    
+    - name: "os fingerprinting"
+      run: cd dockerfiles &&  docker build . --file Dockerfile.libvirt --tag "ubuntu2004/libvirtkvmqemu"
 
   # ubuntu-1604-job:
   #   name: "ubuntu-16.04"
