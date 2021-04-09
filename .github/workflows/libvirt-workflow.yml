@@ -19,11 +19,11 @@ jobs:
       run: hostnamectl status    
       # Package 'libvirt-bin' has no installation candidate
     - name: "build docker libvirt image"
-      run: cd dockerfiles &&  docker build . --file Dockerfile.libvirt1604 --tag "ubuntu1604/libvirtkvmqemu"
+      run: cd dockerfiles &&  docker build . --file Dockerfile.ubuntu.libvirt1604 --tag "ubuntu1604/libvirtkvmqemu"
     - name: "build docker libvirt image"
-      run: cd dockerfiles &&  docker build . --file Dockerfile.libvirt1804 --tag "ubuntu1804/libvirtkvmqemu"
+      run: cd dockerfiles &&  docker build . --file Dockerfile.ubuntu.libvirt1804 --tag "ubuntu1804/libvirtkvmqemu"
     - name: "build docker libvirt image"
-      run: cd dockerfiles &&  docker build . --file Dockerfile.libvirt2004 --tag "ubuntu2004/libvirtkvmqemu"
+      run: cd dockerfiles &&  docker build . --file Dockerfile.ubuntu.libvirt2004 --tag "ubuntu2004/libvirtkvmqemu"
 
   # ubuntu-1604-job:
   #   name: "ubuntu-16.04"
