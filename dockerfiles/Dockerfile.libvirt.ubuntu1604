@@ -24,7 +24,8 @@ RUN  libvirtd --version
 #16.04 only rule
 #addgroup libvirtd #The group `libvirtd' already exists.
 
-RUN adduser  $(id -un) libvirtd #ensure that your username is added to the group libvirtd
+# adduser: The group `libvirtd' does not exist.
+# RUN adduser  $(id -un) libvirtd #ensure that your username is added to the group libvirtd
 # kvm-ok #INFO: Your CPU does not support KVM extensions
 RUN echo "=============================Install kvm qemu libvirt finished============================================================="
 
