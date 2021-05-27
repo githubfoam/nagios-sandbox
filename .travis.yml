@@ -8,7 +8,8 @@ matrix:
   fast_finish: true
   include:
 
-    - name: "nagios provision bash Python 3.7 on bionic amd64"
+
+    - name: "centos stream provision bash Python 3.7 on bionic amd64"
       dist: bionic
       arch: amd64
       language: python
@@ -21,8 +22,8 @@ matrix:
       script:
         - sudo make deploy-vagrant
         - sudo make deploy-libvirt
-        - sudo make deploy-nagios
+        - sudo make deploy-centos-stream
       after_success:
         - deactivate
         - sudo vagrant destroy -f # required to run Vagrantfile template        
-        - sudo rm Vagrantfile # required to run Vagrantfile template 
+        - sudo rm Vagrantfile # required to run Vagrantfile template         
