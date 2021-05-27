@@ -21,7 +21,7 @@ matrix:
       script:
         - sudo make deploy-vagrant
         - sudo make deploy-libvirt
-        - sudo make deploy-nagios
+        # - sudo make deploy-nagios
       after_success:
         - deactivate
         - sudo vagrant destroy -f # required to run Vagrantfile template        
