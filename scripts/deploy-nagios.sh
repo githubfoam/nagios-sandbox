@@ -7,16 +7,68 @@ set -o xtrace
 
 echo "============================deploy nagios============================================================="
 
-vagrant plugin install vagrant-libvirt #The vagrant-libvirt plugin is required when using KVM on Linux
-vagrant plugin install vagrant-mutate #Convert vagrant boxes to work with different providers
+# ---- basic requirements
 
-# https://app.vagrantup.com/debian/boxes/buster64
-vagrant box add "debian/buster64" --provider=libvirt
-vagrant init --template Vagrantfile.provision.bash.erb
-vagrant up --provider=libvirt "vg-nagios-01"
+# ---- references:
+# ---- 1. https://support.nagios.com/kb/article.php?id=569#Ubuntu
+# ---- 2. https://github.com/nagios-plugins/nagios-plugins/blob/release-2.3.3/REQUIREMENTS
+# ---- 3. https://github.com/nagios-plugins/nagios-plugins/blob/release-2.3.3/.travis.yml
 
-vagrant box list #veridy installed boxes
-virsh list --all #show all running KVM/libvirt VMs
+
+# libapache2-mod-php : Depends: libapache2-mod-php7.4 but it is not going to be installed
+# libapache2-mod-php                                                    
+
+apt-get update -qq                                                            && \
+apt-get install -y --no-install-recommends                                    \
+        apache2                                                               \
+        apache2-utils                                                         \
+        autoconf                                                              \
+        bc                                                                    \
+        build-essential                                                       \
+        curl                                                                  \
+        dc                                                                    \
+        dnsutils                                                              \
+        file                                                                  \
+        fping                                                                 \
+        gawk                                                                  \
+        gcc                                                                   \
+        gettext                                                               \
+        iputils-ping                                                          \
+        ldap-utils                                                            \
+        libc6                                                                 \
+        libcrypt-x509-perl                                                    \
+        libdatetime-format-dateparse-perl                                     \
+        libdbi-dev                                                            \
+        libfreeradius-dev                                                     \
+        libgd-dev                                                             \
+        libkrb5-dev                                                           \
+        libldap2-dev                                                          \
+        liblwp-protocol-https-perl                                            \
+        libmcrypt-dev                                                         \
+        libmysqlclient-dev                                                    \
+        libnet-snmp-perl                                                      \
+        libperl-dev                                                           \
+        libpq-dev                                                             \
+        libpqxx-dev                                                           \
+        libsnmp-dev                                                           \
+        libsqlite3-dev                                                        \
+        libssl-dev                                                            \
+        libtext-glob-perl                                                     \
+        libupsclient-dev                                                      \
+        make                                                                  \
+        netcat                                                                \
+        openssh-client                                                        \
+        openssl                                                               \
+        php-cli                                                               \
+        php-gd                                                                \
+        smbclient                                                             \
+        snmp                                                                  \
+        snmp-mibs-downloader                                                  \
+        sudo                                                                  \
+        supervisor                                                            \
+        unzip                                                                 \
+        wget
+
 
 
 
