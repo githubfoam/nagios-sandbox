@@ -21,6 +21,8 @@ Vagrant.configure(2) do |config|
                     vb.memory = "4096"
                 end
                 k8scluster.vm.provision :shell, path: "provisioning/bootstrap.sh"
+                k8scluster.vm.provision :shell, path: "provisioning/centos-docker-install.sh"
+                k8scluster.vm.provision :shell, path: "provisioning/build-nagios-docker-image.sh"                
               end
 
 
@@ -38,5 +40,6 @@ Vagrant.configure(2) do |config|
               end
               
               
+  
 
 end
