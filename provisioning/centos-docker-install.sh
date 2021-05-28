@@ -6,7 +6,7 @@ set -o xtrace
 # set -eox pipefail #safety for script
 
 echo "===================================================================================="
-                          docker install started
+echo "                          docker install started                                    "
 echo "===================================================================================="
 
 
@@ -60,5 +60,5 @@ systemctl enable docker.service
 systemctl enable containerd.service
 
 echo "===================================================================================="
-                          docker install finished
+echo "                          docker install finished                                   "
 echo "===================================================================================="

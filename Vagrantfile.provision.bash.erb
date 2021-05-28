@@ -34,6 +34,7 @@ Vagrant.configure(2) do |config|
                 end
                 k8scluster.vm.provision :shell, path: "provisioning/bootstrap.sh"
                 k8scluster.vm.provision :shell, path: "provisioning/centos-docker.sh"
+                k8scluster.vm.provision :shell, path: "provisioning/build-nagios-docker-image.sh"
               end
               
               
