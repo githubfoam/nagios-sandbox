@@ -1,0 +1,40 @@
+name: "Ubuntu nagios CI workflow"
+
+
+on:
+  push:
+    branches: [ test ]
+
+jobs:
+
+#https://support.nagios.com/kb/article/nagios-core-installing-nagios-core-from-source-96.html#Ubuntu
+  ubuntu-1604-nagios-job:
+    name: "ubuntu-16.04 nagios job"
+    runs-on: ubuntu-16.04
+    steps:
+    - uses: actions/checkout@v2
+    - name: "os fingerprinting"
+      run: hostnamectl status  
+   
+
+# #https://support.nagios.com/kb/article/nagios-core-installing-nagios-core-from-source-96.html#Ubuntu
+  ubuntu-1804-nagios-job:
+    name: "ubuntu-18.04 nagios job"
+    runs-on: ubuntu-18.04
+    steps:
+    - uses: actions/checkout@v2
+    - name: "os fingerprinting"
+      run: hostnamectl status 
+
+      
+
+# #https://support.nagios.com/kb/article/nagios-core-installing-nagios-core-from-source-96.html#Ubuntu
+  ubuntu-2004-nagios-job:
+    name: "ubuntu-20.04 nagios job"
+    runs-on: ubuntu-20.04
+    steps:
+    - uses: actions/checkout@v2
+    - name: "os fingerprinting"
+      run: hostnamectl status   
+    - name: "Prerequisites"
+      run: sudo make deploy-nagios
