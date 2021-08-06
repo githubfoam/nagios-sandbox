@@ -38,5 +38,5 @@ jobs:
     - uses: actions/checkout@v2
     - name: "os fingerprinting"
       run: hostnamectl status   
-    - name: "Prerequisites"
-      run: sudo make deploy-nagios
+    # - name: "deploy nagios"
+    #   run: sudo make deploy-nagios
