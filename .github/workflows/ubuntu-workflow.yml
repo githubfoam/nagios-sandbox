@@ -10,13 +10,13 @@ on:
 jobs:
 
 #https://support.nagios.com/kb/article/nagios-core-installing-nagios-core-from-source-96.html#Ubuntu
-  ubuntu-1604-nagios-job:
-    name: "ubuntu-16.04 nagios job"
-    runs-on: ubuntu-16.04
-    steps:
-    - uses: actions/checkout@v2
-    - name: "os fingerprinting"
-      run: hostnamectl status  
+  # ubuntu-1604-nagios-job:
+  #   name: "ubuntu-16.04 nagios job"
+  #   runs-on: ubuntu-16.04
+  #   steps:
+  #   - uses: actions/checkout@v2
+  #   - name: "os fingerprinting"
+  #     run: hostnamectl status  
 #     - name: "Security-Enhanced Linux"
 #       #This guide is based on SELinux being disabled or in permissive mode. SELinux is not enabled by default on Ubuntu
 #       run: sudo dpkg -l selinux*  
@@ -92,3 +92,14 @@ jobs:
 #         #libapache2-mod-php7.4 : Depends: php7.4-common (= 7.4.3-4ubuntu2.4) but 7.4.16-1+ubuntu20.04.1+deb.sury.org+1 is to be installed
 #         #sudo apt-get install -y autoconf gcc libc6 make wget unzip apache2 php libapache2-mod-php7.4 libgd-dev
 #         sudo apt-get install -y autoconf gcc libc6 make wget unzip apache2 php
+
+# #https://support.nagios.com/kb/article/nagios-core-installing-nagios-core-from-source-96.html#Ubuntu
+  ubuntu-2004-nagios-job:
+    name: "ubuntu-20.04 nagios job"
+    runs-on: ubuntu-20.04
+    steps:
+    - uses: actions/checkout@v2
+    - name: "os fingerprinting"
+      run: hostnamectl status   
+    - name: "Prerequisites"
+      run: sudo make deploy-nagios

@@ -17,7 +17,7 @@ deploy-vagrant-boxes:
 	bash scripts/deploy-vagrant-boxes.sh
 
 deploy-nagios:
-	bash scripts/deploy-nagios.sh
+	bash scripts/deploy-nagios-v1.sh
 
 deploy-nagios-docker:
 	bash scripts/deploy-nagios-docker.sh
