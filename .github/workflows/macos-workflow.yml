@@ -51,10 +51,29 @@ jobs:
           export PATH=/opt/local/bin:/opt/local/sbin:$PATH
           port version
           sudo port -v selfupdate
-          sudo port install nagios  
-      # - name: "Install Nagios with MacPorts"
+          port version
+          # sudo port install nagios  
+          # port contents nagios #see what files were installed by nagios
+          # sudo port selfupdate && sudo port upgrade nagios
+          # sudo port install nagios-plugins
+          # port contents nagios-plugins #see what files were installed by nagios-plugins
+          # sudo port selfupdate && sudo port upgrade nagios-plugins #upgrade nagios-plugins
+      - name: "Install Nagios with MacPorts"
+        run: |
+          sudo port -v selfupdate
+          sudo port install nagios 
+          port contents nagios #see what files were installed by nagios  
+      # - name: "Install Nagios  with MacPorts"
       #   run: |
-      #     sudo port install nagios          
+      #     sudo port -v selfupdate
+      #     sudo port install nagios 
+      #     port contents nagios #see what files were installed by nagios            
+      # - name: "Upgrade Nagios Plugins with MacPorts"
+      #   run: |
+      #     sudo port -v selfupdate
+      #     sudo port install nagios-plugins
+      #     port contents nagios-plugins #see what files were installed by nagios-plugins
+      #     sudo port selfupdate && sudo port upgrade nagios-plugins #upgrade nagios-plugins                
       # - name: "brew cask list"
       #   run:   brew list --cask #Warning: Calling brew cask list is deprecated! Use brew list [--cask] instead.
       # - name: "brew list"
