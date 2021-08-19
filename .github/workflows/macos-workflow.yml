@@ -25,6 +25,12 @@ jobs:
       #   run: brew upgrade
       - name: "check on brew version"
         run: brew --version   #Homebrew 2.5.12 
+      - name: "check on xcode version"
+        run: |
+          /usr/bin/xcodebuild -version
+          ls -lai /usr/bin
+          which xcodebuild
+          xcodebuild -version
         # https://guide.macports.org/#installing.xcode  
       - name: "Source Install"
         run: |
@@ -32,6 +38,8 @@ jobs:
           tar xf MacPorts-2.7.1.tar.bz2
           cd MacPorts-2.7.1/
           ./configure
+          make
+          sudo make install
       # - name: "brew cask list"
       #   run:   brew list --cask #Warning: Calling brew cask list is deprecated! Use brew list [--cask] instead.
       # - name: "brew list"
