@@ -29,18 +29,21 @@ jobs:
       - name: "Source Install"
         run: |
           curl -O https://distfiles.macports.org/MacPorts/MacPorts-2.7.1.tar.bz2          
-      - name: "brew cask list"
-        run:   brew list --cask #Warning: Calling brew cask list is deprecated! Use brew list [--cask] instead.
-      - name: "brew list"
-        # run: brew list #List all the installed formulas
-        run: brew list --formula #List all the installed formulas
-        # Calling `brew list` to only list formulae is disabled! Use `brew list --formula` instead
-      - name: "Get OS X System Version"
-        run: sw_vers       
-      - name: "Get Mac System Details with system_profiler"
-        run: system_profiler | more  
-      - name: "osfingerprinting"
-        run: uname -a                           
+          tar xf MacPorts-2.7.1.tar.bz2
+          cd MacPorts-2.7.1/
+          ./configure
+      # - name: "brew cask list"
+      #   run:   brew list --cask #Warning: Calling brew cask list is deprecated! Use brew list [--cask] instead.
+      # - name: "brew list"
+      #   # run: brew list #List all the installed formulas
+      #   run: brew list --formula #List all the installed formulas
+      #   # Calling `brew list` to only list formulae is disabled! Use `brew list --formula` instead
+      # - name: "Get OS X System Version"
+      #   run: sw_vers       
+      # - name: "Get Mac System Details with system_profiler"
+      #   run: system_profiler | more  
+      # - name: "osfingerprinting"
+      #   run: uname -a                           
       # - name: "brew doctor"
       #   run: |
       #     brew doctor #Check brew for potential problems 
