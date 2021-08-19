@@ -50,6 +50,7 @@ jobs:
           echo $PATH          
           export PATH=/opt/local/bin:/opt/local/sbin:$PATH
           port version
+          sudo port -v selfupdate
           sudo port install nagios  
       # - name: "Install Nagios with MacPorts"
       #   run: |
