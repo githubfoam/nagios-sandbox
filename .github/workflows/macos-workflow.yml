@@ -14,7 +14,7 @@ jobs:
 
 
   macos-latest:
-      name: "MacPorts macos-latest macos-latest 10.15.7"
+      name: "MacPorts macos-latest 10.15.7"
       runs-on: macos-latest
       steps:
       - name: Checkout
@@ -35,16 +35,12 @@ jobs:
         run: |
           export MACPORTS_VERSION="2.7.1"
           echo $MACPORTS_VERSION 
-          # curl -O https://distfiles.macports.org/MacPorts/MacPorts-2.7.1.tar.bz2          
           curl -O https://distfiles.macports.org/MacPorts/MacPorts-$MACPORTS_VERSION.tar.bz2          
-          # tar xf MacPorts-2.7.1.tar.bz2
           tar xf MacPorts-$MACPORTS_VERSION.tar.bz2
-          # cd MacPorts-2.7.1/
           cd MacPorts-$MACPORTS_VERSION/
           ./configure
           make
           sudo make install
-          # port version #port: command not found
       - name: "MacPorts Shell Configuration"
         run: |
           echo $PATH          
@@ -52,17 +48,17 @@ jobs:
           port version
           sudo port -v selfupdate
           port version
-          # sudo port install nagios  
-          # port contents nagios #see what files were installed by nagios
-          # sudo port selfupdate && sudo port upgrade nagios
-          # sudo port install nagios-plugins
-          # port contents nagios-plugins #see what files were installed by nagios-plugins
-          # sudo port selfupdate && sudo port upgrade nagios-plugins #upgrade nagios-plugins
-      - name: "Install Nagios with MacPorts"
-        run: |
-          sudo port -v selfupdate
-          sudo port install nagios 
-          port contents nagios #see what files were installed by nagios  
+          sudo port install nagios  
+          port contents nagios #see what files were installed by nagios
+          sudo port selfupdate && sudo port upgrade nagios
+          sudo port install nagios-plugins
+          port contents nagios-plugins #see what files were installed by nagios-plugins
+          sudo port selfupdate && sudo port upgrade nagios-plugins #upgrade nagios-plugins
+      # - name: "Install Nagios with MacPorts"
+      #   run: |
+      #     sudo port -v selfupdate
+      #     sudo port install nagios 
+      #     port contents nagios #see what files were installed by nagios  
       # - name: "Install Nagios  with MacPorts"
       #   run: |
       #     sudo port -v selfupdate
