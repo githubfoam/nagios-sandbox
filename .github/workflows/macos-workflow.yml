@@ -28,11 +28,10 @@ jobs:
       - name: "check on xcode version"
         run: |
           /usr/bin/xcodebuild -version
-          ls -lai /usr/bin
           which xcodebuild
           xcodebuild -version
         # https://guide.macports.org/#installing.xcode  
-      - name: "Source Install"
+      - name: "MacPorts Source Install"
         run: |
           curl -O https://distfiles.macports.org/MacPorts/MacPorts-2.7.1.tar.bz2          
           tar xf MacPorts-2.7.1.tar.bz2
@@ -40,6 +39,10 @@ jobs:
           ./configure
           make
           sudo make install
+          port version
+      - name: "MacPorts Shell Configuration"
+        run: |
+          echo $PATH          
       # - name: "brew cask list"
       #   run:   brew list --cask #Warning: Calling brew cask list is deprecated! Use brew list [--cask] instead.
       # - name: "brew list"
