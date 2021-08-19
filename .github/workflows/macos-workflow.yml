@@ -39,10 +39,12 @@ jobs:
           ./configure
           make
           sudo make install
-          port version
+          # port version #port: command not found
       - name: "MacPorts Shell Configuration"
         run: |
           echo $PATH          
+          export PATH=/opt/local/bin:/opt/local/sbin:$PATH
+          port version
       # - name: "brew cask list"
       #   run:   brew list --cask #Warning: Calling brew cask list is deprecated! Use brew list [--cask] instead.
       # - name: "brew list"
