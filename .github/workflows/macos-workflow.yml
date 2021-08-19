@@ -33,7 +33,8 @@ jobs:
         # https://guide.macports.org/#installing.xcode  
       - name: "MacPorts Source Install"
         run: |
-          set MACPORTS_VERSION="2.7.1"
+          export MACPORTS_VERSION="2.7.1"
+          echo $MACPORTS_VERSION 
           # curl -O https://distfiles.macports.org/MacPorts/MacPorts-2.7.1.tar.bz2          
           curl -O https://distfiles.macports.org/MacPorts/MacPorts-$MACPORTS_VERSION.tar.bz2          
           # tar xf MacPorts-2.7.1.tar.bz2
