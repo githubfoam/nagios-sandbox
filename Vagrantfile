@@ -25,6 +25,7 @@ Vagrant.configure(2) do |config|
                 # k8scluster.vm.provision :shell, path: "scripts/deploy-nagios-v1.sh"
               end
 
+              #OK WORKING
               config.vm.define "vg-nagios-02" do |k8scluster|
                 k8scluster.vm.box = "centos/stream8"
                 k8scluster.vm.hostname = "vg-nagios-02"
