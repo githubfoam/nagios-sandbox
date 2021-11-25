@@ -1,4 +1,4 @@
-name: "Ubuntu nagios CI workflow"
+name: "nagios CI workflow"
 
 
 on:
