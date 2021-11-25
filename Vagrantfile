@@ -1,0 +1,32 @@
+
+
+Vagrant.configure(2) do |config|
+  config.vm.box_check_update = false
+
+  # vbox template for all vagrant instances
+  config.vm.provider "virtualbox" do |vb|
+    vb.gui = false
+    vb.memory = "512"
+    vb.cpus = 2
+  end
+
+             config.vm.define "vg-nagios-01" do |k8scluster|
+                k8scluster.vm.box = "bento/centos-stream-8"
+                k8scluster.vm.hostname = "vg-nagios-01"
+                k8scluster.vm.network "private_network", ip: "192.168.50.15"
+                #Disabling the default /vagrant share can be done as follows:
+                k8scluster.vm.synced_folder ".", "/vagrant", disabled: true
+                k8scluster.vm.provider "virtualbox" do |vb|
+                    vb.name = "vbox-nagios-01"
+                    vb.memory = "1024"
+                end
+                k8scluster.vm.provision :shell, path: "provisioning/bootstrap.sh"
+                k8scluster.vm.provision :shell, path: "scripts/deploy-nagios-v1.sh"
+              end
+
+
+             
+              
+  
+
+end

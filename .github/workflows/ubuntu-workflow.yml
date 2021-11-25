@@ -9,14 +9,18 @@ on:
       
 jobs:
 
+  #deprecated
+  # Can't find any online and idle self-hosted runner in the current 
+  # repository, account/organization that matches the required 
+  # labels: 'ubuntu-16.04' Waiting for a self-hosted runner to pickup this job...
 #https://support.nagios.com/kb/article/nagios-core-installing-nagios-core-from-source-96.html#Ubuntu
-  ubuntu-1604-nagios-job:
-    name: "ubuntu-16.04 nagios job"
-    runs-on: ubuntu-16.04
-    steps:
-    - uses: actions/checkout@v2
-    - name: "os fingerprinting"
-      run: hostnamectl status  
+  # ubuntu-1604-nagios-job:
+  #   name: "ubuntu-16.04 nagios job"
+  #   runs-on: ubuntu-16.04
+  #   steps:
+  #   - uses: actions/checkout@v2
+  #   - name: "os fingerprinting"
+  #     run: hostnamectl status  
    
 
 # #https://support.nagios.com/kb/article/nagios-core-installing-nagios-core-from-source-96.html#Ubuntu
@@ -40,3 +44,12 @@ jobs:
       run: hostnamectl status   
     # - name: "deploy nagios"
     #   run: sudo make deploy-nagios
+
+# #https://support.nagios.com/kb/article/nagios-core-installing-nagios-core-from-source-96.html#Ubuntu
+  ubuntu-latest-nagios-job:
+    name: "nagios on ubuntu-latest"
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: "os fingerprinting"
+      run: hostnamectl status 
