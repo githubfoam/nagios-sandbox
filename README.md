@@ -24,3 +24,12 @@ username/password nagiosadmin/adminpass
 >del Vagrantfile
 >dir
 ~~~~
+~~~~
+4.4.7
+
+nagios web gui
+Unable to get process status
+
+[vagrant@vg-nagios-02 ~]$ sudo journalctl -xe | grep nagios
+vg-nagios-02 nagios[97833]: Caught SIGSEGV, shutting down...
+~~~~
